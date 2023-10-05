@@ -26,7 +26,7 @@ def show(report):
 
 canvas=Canvas(root,width=666,height=666)
 canvas.pack()
-
+ 
 
 frame=Frame(root,bd=1,bg='black')
 frame.place(relx=0.5,rely=0.1,relheight=0.1,relwidth=0.7,anchor='n')
