@@ -1,0 +1,54 @@
+import openai
+import random
+
+# Replace 'your-api-key' with your actual API key from OpenAI
+api_key = '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'
+
+# Initialize the OpenAI API client
+openai.api_key = api_key
+
+# Dictionary of predefined responses
+responses = {
+    "hello": ["Hi!", "Hello!", "Hey there!"],
+    "how are you": ["I'm good, thanks!", "I'm a chatbot, I don't have feelings, but I'm here to help!"],
+    "what's your name": ["I'm just a simple chatbot.", "I don't have a name, but you can call me Chatbot."],
+    "bye": ["Goodbye!", "See you later!", "Have a great day!"],
+    "age": ["I don't age; I'm a computer program.", "I'm ageless, like the internet."],
+    "who created you": ["I was created by a team of developers.", "I'm a product of human ingenuity."],
+    "tell a joke": ["Sure, here's one: Why don't scientists trust atoms? Because they make up everything!", "Why was the math book sad? Because it had too many problems!"],
+    "help": ["I can answer questions, tell jokes, and have general conversations. Just type your message!"]
+}
+
+def generate_response(input_text):
+    response = responses.get(input_text.lower())
+    
+    if response:
+        return random.choice(response)
+    
+    try:
+        # Use the OpenAI GPT-3 API to generate a response
+        gpt3_response = openai.Completion.create(
+            engine="davinci",
+            prompt=f"Chatbot: {input_text}\nUser:",
+            max_tokens=50  # Adjust the response length as needed
+        )
+        return gpt3_response.choices[0].text.strip()
+    except Exception as e:
+        print("Error generating response from GPT-3:", str(e))
+        return "I'm sorry, I couldn't understand that."
+
+def chat():
+    print("Chatbot: Hi! How can I assist you today? (Type 'bye' to exit)")
+
+    while True:
+        user_input = input("You: ")
+
+        if user_input == 'bye':
+            print("Chatbot: Goodbye!")
+            break
+
+        response = generate_response(user_input)
+        print("Chatbot:", response)
+
+if __name__ == "__main__":
+    chat()
