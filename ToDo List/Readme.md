@@ -5,6 +5,7 @@ This is a simple command-line to-do list application written in Python. It allow
 ## Features
 
 - Add tasks to the to-do list.
+- add program
 - Remove tasks from the to-do list.
 - View all tasks in the to-do list.
 - Quit the application.
