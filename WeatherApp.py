@@ -14,6 +14,7 @@ def get(city):
     report=response.json()
     
     label['text']=show(report)
+    
 
 
 def show(report):
