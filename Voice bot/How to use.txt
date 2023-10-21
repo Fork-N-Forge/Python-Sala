@@ -1,0 +1,36 @@
+pyttsx3
+webbrowser
+smtplib
+random
+speech_recognition #not needed
+wikipedia
+datetime
+wolframalpha
+os
+sys
+turtle
+matplotlib
+datetime
+mysql.connector
+install all the packages mentioned above from the command prompt using : pip install 'library name'
+install Mysql 
+
+Commands to use : 
+1) open google
+2) open youtube 
+3) open gmail
+4) what's up / how are you 
+5) hey/hello
+6) email
+7) nothing /abort /stop
+8) bye
+9) who is Akshat Chaube
+10) who are you
+11) are you a girl
+12) who made you 
+13) self destruct
+14) open the bank
+15) note 
+16) show note 
+17) play a song
+18) set timer
