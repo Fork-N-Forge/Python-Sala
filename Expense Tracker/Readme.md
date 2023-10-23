@@ -24,8 +24,7 @@ The **Expense Tracker** is a Python application that simplifies the management o
    - `matplotlib`: Used for generating the pie chart.
    - `pandas`: Used for data handling and CSV file operations.
 
-2.**Run the script using Python:**
-
+2. **Run the script using Python:**
 
    ```bash
    python expense_tracker.py
