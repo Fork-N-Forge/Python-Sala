@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Tugas Akhir Machine Learning">
+		<meta name="keywords" content="Python, Machine Learning, Scikit" />
+		<meta name="author" content="Sabri Sangjaya">
+		<title>Python Image Generator</title>
+		<link rel="stylesheet" href="static/css/bootstrap.min.css">
+		<script src="static/js/jquery.min.js" type="text/javascript"></script>
+		<script src="static/js/popper.min.js" type="text/javascript"></script>
+		<script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="static/css/font-awesome.css">
+	</head>
+	<body>
+		<br/><br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-body">
+							{% include 'nav.html' %}
+							<br/>
+							<form action="result" method="POST">
+								<div class="form-group">
+									<input type="text" name="texturl" class="form-control" placeholder="Masukan URL Twitter" pattern='/(^|[^'"])(https?:\/\/twitter\.com\/(?:#!\/)?(\w+)‌​\/status(?:es)?\/(\d‌​+))/'>
+								</div>
+								<div class="form-group">
+									<textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3" placeholder="atau Ketik kalimat anda"></textarea>
+								</div>
+								<div class="form-group">
+									<style>
+										.cc-selector input{
+									margin:0;padding:0;
+									-webkit-appearance:none;
+									-moz-appearance:none;
+									appearance:none;
+									}
+									.memesd{background-image:url(static/image/meme_sd.png);}
+									.memesponge{background-image:url(static/image/meme_new.png);}
+									.memekhaleesi{background-image:url(static/image/meme_khaleesi.png);}
+									.memequote{background-image:url(static/image/quote.jpg);}
+									.memenkcthi{background-image:url(static/image/nktchi.jpg);}
+									.mastercard{background-image:url(http://i.imgur.com/SJbRQF7.png);}
+									.cc-selector input:active +.drinkcard-cc{opacity: .9;}
+									.cc-selector input:checked +.drinkcard-cc{
+									-webkit-filter: none;
+									-moz-filter: none;
+									filter: none;
+									}
+									.drinkcard-cc{
+									cursor:pointer;
+									background-size:contain;
+									background-repeat:no-repeat;
+									display:inline-block;
+									text-align: center;
+									padding-top: 30px;
+									color:white;
+									font-size: 2em;
+									-webkit-text-stroke: 1px black;
+									width:250px;height:120px;
+									-webkit-transition: all 100ms ease-in;
+									-moz-transition: all 100ms ease-in;
+									transition: all 100ms ease-in;
+									-webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+									-moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+									filter: brightness(1.8) grayscale(1) opacity(.7);
+									}
+									.drinkcard-cc:hover{
+									-webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+									-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+									filter: brightness(1.2) grayscale(.5) opacity(.9);
+									}
+									</style>
+									<div class="cc-selector">
+										<input id="memequote" type="radio" name="mode" value="1" required/>
+										<label class="drinkcard-cc memequote" for="memequote">Quote Mode</label>
+										<input id="memekhaleesi" type="radio" name="mode" value="3" />
+										<label class="drinkcard-cc memekhaleesi" for="memekhaleesi">Khaleesi</label>
+										<input id="memesponge" type="radio" name="mode" value="2" />
+										<label class="drinkcard-cc memesponge" for="memesponge">Spongebob</label>
+										<input id="memesd" type="radio" name="mode" value="4" />
+										<label class="drinkcard-cc memesd" for="memesd">SD</label>
+
+										<input id="memenkcthi" type="radio" name="mode" value="5"/>
+										<label class="drinkcard-cc memenkcthi" for="memenkcthi">NKCTHI</label>
+
+										
+									</div>
+									<script>
+
+										$(document).ready(function() {
+											$('#show-me').hide();
+									$('input[type="radio"]').click(function() {
+									if($(this).attr('id') == 'memenkcthi'||$(this).attr('id') == 'memequote'||$(this).attr('id') == 'exampleRadios1'||$(this).attr('id') == 'exampleRadios2') {
+										$('#show-me').show();
+										$('#exampleRadios1').attr("required", true);
+									}
+									else {
+										$('#show-me').hide();
+										$('#exampleRadios1').attr("required", false);
+									}
+									});
+								
+									});
+									</script>
+								</div>
+								<div class="form-group" id="show-me">
+									<input type="radio" name="ukuran" value="square" id="exampleRadios1">
+									<label class="form-check-label" for="exampleRadios1">
+										Square
+									</label>
+									<input type="radio" name="ukuran" value="potrait" id="exampleRadios2">
+									<label class="form-check-label" for="exampleRadios2">
+										Potrait
+									</label>
+								</div>
+								<br/>
+								<div class="form-group">
+									<button class="btn btn-success" type="submit">Go</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<br/>
+					<br/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
