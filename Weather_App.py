@@ -106,4 +106,3 @@ b = city
 
 recommendation = get_weather_recommendation(b,a)
 print("Weather Recommendation : ",recommendation)
-
