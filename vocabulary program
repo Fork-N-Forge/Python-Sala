@@ -1,0 +1,73 @@
+#This is a vocabularygame that you can use to learn a new language. It displays a word in English and you have to type the corresponding word in French. It will tell you if you are correct or not. It will also display your final score at the end of the game.
+#This game uses a sample data set of English and French words. You can replace it with your own vocabulary data set.
+
+import tkinter as tk
+import random
+
+# Sample vocabulary data (replace with your vocabulary data)
+vocabulary = {
+    'apple': 'pomme',
+    'banana': 'banane',
+    'carrot': 'carotte',
+    'dog': 'chien',
+    'cat': 'chat',
+}
+
+# Create a list of vocabulary words
+word_list = list(vocabulary.keys())
+random.shuffle(word_list)
+
+# Initialize variables
+current_word_index = 0
+correct_count = 0
+
+# Function to check the answer
+def check_answer():
+    global current_word_index, correct_count
+    user_answer = entry.get()
+    correct_answer = vocabulary[word_list[current_word_index]]
+    if user_answer == correct_answer:
+        result_label.config(text="Correct!", fg="green")
+        correct_count += 1
+    else:
+        result_label.config(text="Incorrect. Correct answer: " + correct_answer, fg="red")
+    
+    current_word_index += 1
+    if current_word_index < len(word_list):
+        show_next_word()
+    else:
+        show_final_result()
+
+# Function to show the next word
+def show_next_word():
+    word_label.config(text=word_list[current_word_index])
+    entry.delete(0, tk.END)
+    result_label.config(text="")
+
+# Function to display the final result
+def show_final_result():
+    word_label.config(text="Game Over!")
+    entry.delete(0, tk.END)
+    result_label.config(text=f"Your score: {correct_count}/{len(word_list)}")
+
+# Create the main window
+window = tk.Tk()
+window.title("Language Learning App")
+
+# Create and configure widgets
+word_label = tk.Label(window, text="", font=("Helvetica", 24))
+entry = tk.Entry(window)
+check_button = tk.Button(window, text="Check", command=check_answer)
+result_label = tk.Label(window, text="", fg="green")
+
+# Position widgets in the window
+word_label.pack(pady=20)
+entry.pack()
+check_button.pack(pady=10)
+result_label.pack()
+
+# Start the game
+show_next_word()
+
+# Start the GUI main loop
+window.mainloop()
