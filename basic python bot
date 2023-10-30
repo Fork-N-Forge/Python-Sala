@@ -1,0 +1,27 @@
+import random
+
+# Define responses for FriendlyBot
+responses = {
+    "hello": "Hello! How can I help you today?",
+    "how are you": "I'm just a bot, but I'm here to assist you. How can I assist you?",
+    "goodbye": "Goodbye! Have a great day!",
+    "default": "I'm not sure what you mean. Can you please rephrase that?",
+}
+
+def friendlybot_response(user_input):
+    user_input = user_input.lower()
+    # Check if the user input matches any predefined prompts
+    if user_input in responses:
+        return responses[user_input]
+    else:
+        return responses["default"]
+
+# Main loop for the chatbot
+print("FriendlyBot: Hello! I'm here to chat. Type 'goodbye' to exit.")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'goodbye':
+        print("FriendlyBot: Goodbye!")
+        break
+    response = friendlybot_response(user_input)
+    print("FriendlyBot:", response)
